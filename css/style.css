@@ -4,7 +4,15 @@ body {
   line-height: 1.8;
   letter-spacing: .8px;
   color: #333;
+  /* background: linear-gradient(345deg, rgb(231, 164, 229),rgb(249, 241, 214)) !important;
+  background-size: 100% 100% !important; */
+  /* background-color:hsla(44,0%,100%,1); */
+  background-image: 
+  radial-gradient(circle at top left, rgb(231, 164, 229), rgba(255, 255, 255, 0) 25%), 
+  radial-gradient(circle at bottom right,rgb(234, 177, 147), rgba(255, 255, 255, 0) 25%);
+  min-height: 100vh;
 }
+
 
 a {
   transition: opacity .3s;
@@ -66,25 +74,41 @@ li {
 ヘッダー
 ---------------------------------*/
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1;
   width: 100%;
-  background-color:#ffffffcc
+  transition:box-shadow .2s ease 0s,background-color .2s ease 0s;
+  /* background-color:#ffffffcc */
+}
+
+.header.change-color {
+  transition: box-shadow .2s ease 0s, background-color .2s ease 0s
+}
+
+.change-color {
+  background-color: none;
+  box-shadow: inset 0 -1px 0 0 1a #000;
+  -webkit-backdrop-filter: saturate(180%) blur(5px);
+  backdrop-filter: saturate(180%) blur(5px);
+  background-color: hsla(0, 0%, 100%, .8);
+  -webkit-backdrop-filter: saturate(180%) blur(5px);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 20px 30px;
 }
 
 .header-logo {
-  font-size: 20px;
+  font-family: "lust", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
   font-weight: bold;
   line-height: 1.2;
-  margin-right: 20px;
   letter-spacing: .05em;
 }
 
@@ -114,22 +138,27 @@ li {
 }
 
 /*--------------------------------
- スプリットスクリーン
+ ファーストビュー
 ---------------------------------*/
-.split {
+.fv {
+  /* position:relative; */
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  background-image: url(../img/gradienta-unsplash.jpg);
+  background-size: cover;
 }
 
-.split-body {
-  width: 50%;
-  padding-right: 3%;
-  padding-left: 10%;
+.fv-body {
+  font-family: "lust", serif;
+  font-weight: 700;
+  font-style: normal;
+  width: 100%;
+  padding-top: 65px;
+  text-align:center
 }
 
-.split-img {
+.fv-img {
   width: 50%;
   height: 95vh;
   background-image: url(../img/mv-pantone.jpg);
@@ -138,7 +167,7 @@ li {
   background-size: cover;
 }
 
-.split-title {
+.fv-title {
   font-size: 42px;
   font-weight: bold;
   line-height: 1.2;
@@ -304,6 +333,7 @@ li {
   body {
     font-size: 13px;
     line-height: 1.7;
+    background-color:hsla(0,0%,100%,.72)
   }
 
   .pc-only {
@@ -330,12 +360,8 @@ li {
   }
 
   /* ヘッダー */
-  .header-inner {
-    padding: 20px;
-  }
-
   .header-logo {
-    font-size: 16px;
+    font-size: 32px;
   }
 
   .header-nav-item:not(:last-child) {
