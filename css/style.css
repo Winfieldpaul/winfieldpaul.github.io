@@ -4,13 +4,30 @@ body {
   line-height: 1.8;
   letter-spacing: .8px;
   color: #333;
-  /* background: linear-gradient(345deg, rgb(231, 164, 229),rgb(249, 241, 214)) !important;
-  background-size: 100% 100% !important; */
-  /* background-color:hsla(44,0%,100%,1); */
+  min-height: 100vh;
+  position: relative;
+}
+
+
+.wrapper{
   background-image: 
   radial-gradient(circle at top left, rgb(231, 164, 229), rgba(255, 255, 255, 0) 25%), 
   radial-gradient(circle at bottom right,rgb(234, 177, 147), rgba(255, 255, 255, 0) 25%);
-  min-height: 100vh;
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    background-image: 
+    radial-gradient(circle at top left, rgb(231, 164, 229), rgba(255, 255, 255, 0) 12%), 
+    radial-gradient(circle at bottom right,rgb(234, 177, 147), rgba(255, 255, 255, 0) 12%);
+  }
+}
+
+.content{
+  width: 100%;
+  height: 100%;
+  /* margin-top: 50px; */
+  overflow-x: hidden;
 }
 
 
@@ -57,13 +74,16 @@ li {
  見出し
 ---------------------------------*/
 .title {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
   font-size: 34px;
-  font-weight: normal;
-  font-weight: bold;
   line-height: 1;
   margin-bottom: 40px;
   letter-spacing: .05em;
   color: #333;
+  text-align:center;
+  
 }
 
 .lead {
@@ -76,10 +96,9 @@ li {
 .header {
   position: sticky;
   top: 0;
-  z-index: 1;
   width: 100%;
   transition:box-shadow .2s ease 0s,background-color .2s ease 0s;
-  /* background-color:#ffffffcc */
+  z-index:100;
 }
 
 .header.change-color {
@@ -93,6 +112,10 @@ li {
   backdrop-filter: saturate(180%) blur(5px);
   background-color: hsla(0, 0%, 100%, .8);
   -webkit-backdrop-filter: saturate(180%) blur(5px);
+}
+
+.onepx{
+  min-height:1px;
 }
 
 .header-inner {
@@ -141,12 +164,12 @@ li {
  ファーストビュー
 ---------------------------------*/
 .fv {
-  /* position:relative; */
+  position:relative;
   display: flex;
+  width:100%;
+  height:100%;
   align-items: center;
   justify-content: center;
-  background-image: url(../img/gradienta-unsplash.jpg);
-  background-size: cover;
 }
 
 .fv-body {
@@ -155,25 +178,86 @@ li {
   font-style: normal;
   width: 100%;
   padding-top: 65px;
-  text-align:center
+  text-align:center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+
 .fv-img {
-  width: 50%;
-  height: 95vh;
-  background-image: url(../img/mv-pantone.jpg);
+  width: 100%;
+  min-height: 400px;
+  background-image: url(../img/789.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  z-index:-1;
+}
+
+@media screen and (max-width: 600px) {
+  .fv-img {
+    width: 100%;
+    min-height: 320px;
+    background-image: url(../img/123.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    z-index:-1;
+  }
 }
 
 .fv-title {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: 42px;
+  font-weight: bold;
+  color:white;
+  line-height: 1.2;
+  letter-spacing: .05em;
+  padding-bottom:10px;
+  position:relative;
+  z-index:50;
+}
+
+/*--------------------------------
+ スプリットスクリーン
+---------------------------------*/
+.split {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top:30px;
+}
+
+.split-body {
+  width: 50%;
+  padding-right: 3%;
+  /* padding-left: 10%; */
+}
+
+.split-img{
+  width: 30%;
+  height: 40vh;
+  max-height:350px;
+  background-image: url(../img/S__33906693.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border-radius:15%;
+  
+}
+
+.split-title {
   font-size: 42px;
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 20px;
   letter-spacing: .05em;
 }
+
 
 /*--------------------------------
  Works
@@ -374,20 +458,25 @@ li {
 
   /* スプリットスクリーン */
   .split {
-    flex-direction: column-reverse;
+    /* flex-direction: column-reverse; */
   }
 
   .split-body {
     width: 100%;
     padding-right: 3%;
     padding-left: 8%;
+    margin-bottom: 20px;
   }
 
-  .split-img {
-    width: 100%;
-    height: 67vh;
-    margin-bottom: 20px;
-    background-image: url(../img/mv-pantone.jpg);
+  .split-img{
+    width:100%;
+    max-hight:180px;
+    margin:0 50px;
+    padding: 0 20px;
+    background-image: url(../img/S__33906693.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
   }
 
   .split-title {
